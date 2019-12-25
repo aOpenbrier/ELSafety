@@ -1,0 +1,43 @@
+{
+  "name": "ELSafety",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aOpenbrier/ELSafety.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aOpenbrier/ELSafety/issues"
+  },
+  "homepage": "https://github.com/aOpenbrier/ELSafety#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf build && mkdir build && cd dist/assets && rimraf js css && mkdir js css",
+    "copy": "cd src && cpx \"html/*\" ../dist -u && cd ../public && cpx \"**/**/*\" ../dist -u"  ,
+    "scss": "node-sass src/scss -o build",
+    "autoprefix": "postcss build -u autoprefixer -d dist/assets/css",
+    "babel": "babel src --out-dir dist/assets/js --presets=@babel/preset-env",
+    "build": "npm run clean && npm run copy && npm run scss && npm run autoprefix && npm run babel",
+    "deploy": "gh-pages -d publish"
+  },
+  "browserslist": [
+    ">0.2% in US",
+    "not ie <= 10"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "autoprefixer": "^9.6.1",
+    "cpx2": "^2.0.0",
+    "gh-pages": "^2.1.1",
+    "node-sass": "^4.12.0",
+    "postcss": "^7.0.18",
+    "postcss-cli": "^6.1.3",
+    "rimraf": "^3.0.0"
+  }
+}
