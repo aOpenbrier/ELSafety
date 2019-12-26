@@ -15,6 +15,7 @@ body {
 main {
     line-height: 1.8;
     max-width: 75%;
+    padding-bottom: 40px;
     padding-left: 80px;
     padding-right: 80px;
 }
@@ -26,6 +27,7 @@ h1 {
     line-height: 1;
     margin-bottom: 1em;
     padding-left: 80px;
+    margin-top: 40px;
     text-transform: uppercase;
 }
 
@@ -93,8 +95,7 @@ a {
 
 // HEADER AND NAV
 header {
-    margin-top: 75px;
-    padding-top: 40px;
+    padding-top: 75px;
     width: 100%;
 }
 
@@ -145,6 +146,13 @@ nav {
 
 .nav-item {
     padding-right: 1.5em;
+
+            &:focus, &:focus-within, &:hover {
+                &>a, &>h2 {
+                    color: #008fe8;
+                    text-shadow: 1px 1px 1px #bbbbbb;
+                }
+            }
 }
 
 .sub-menu {
@@ -183,7 +191,7 @@ nav {
         width: 100%;
     }
 
-    a:hover {
+    a:hover, a:focus {
         background-color: #cccccc;
     }
 
@@ -196,6 +204,29 @@ nav {
 
 body.home {
     background: url(../img/background-landscape.jpg) center center / cover;
+
+    .nav-item {
+        &>h2, &>a {
+            color: #d9d9d9;
+        }
+
+        &:focus, &:focus-within, &:hover {
+            &>a, &>h2 {
+                color: #ddeeee;
+                text-shadow: 0px 0px 2px #888888, 0px 0px 8px #b4ffe9;
+            }
+        }
+    }
+
+    .logo {
+        height: 200%;
+        align-self: flex-start;
+    }
+
+    .sub-menu svg {
+        fill: #d9d9d9;
+    }
+
 }
 
 .home-icons-outer {
