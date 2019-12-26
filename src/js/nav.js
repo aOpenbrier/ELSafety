@@ -17,9 +17,9 @@ function throttle(callback, limit) {
 }
 
 function navOpacity() {
-        if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-            document.getElementById("top-bar").classList.add('nav-bg')
+        if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
+            document.getElementById("top-bar").classList.add('top-scrolled')
         } else {
-            document.getElementById("top-bar").classList.remove('nav-bg');
+            document.getElementById("top-bar").classList.remove('top-scrolled');
         }
 }
