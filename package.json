@@ -17,10 +17,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rimraf build && mkdir build && cd dist/assets && rimraf js css && mkdir js css",
-    "copy": "cd src && cpx \"html/*\" ../dist -u && cd ../public && cpx \"**/**/*\" ../dist -u"  ,
+    "copy": "cd src && cpx \"html/**/*\" ../dist -u && cd ../public && cpx \"**/**/*\" ../dist -u"  ,
     "scss": "node-sass src/scss -o build",
     "autoprefix": "postcss build -u autoprefixer -d dist/assets/css",
-    "babel": "babel src --out-dir dist/assets/js --presets=@babel/preset-env",
+    "babel": "babel src/js --out-dir dist/assets/js --presets=@babel/preset-env",
     "build": "npm run clean && npm run copy && npm run scss && npm run autoprefix && npm run babel",
     "deploy": "gh-pages -d publish"
   },
