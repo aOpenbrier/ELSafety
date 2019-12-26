@@ -1,7 +1,7 @@
 // Allow callback to run at most 1 time per 100ms
-//     window.addEventListener("scroll", throttle(navOpacity, 100));
-//
-window.addEventListener("scroll", navOpacity());
+    window.addEventListener("scroll", throttle(navOpacity, 100));
+// without throttle
+//     window.addEventListener("scroll", navOpacity());
 
 function throttle(callback, limit) {
     var wait = false                   // Initially, we're not waiting
@@ -18,8 +18,8 @@ function throttle(callback, limit) {
 
 function navOpacity() {
         if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-            document.getElementById("top-bar").classList.add('bg-white')
+            document.getElementById("top-bar").classList.add('nav-bg')
         } else {
-            document.getElementById("top-bar").classList.remove('bg-white');
+            document.getElementById("top-bar").classList.remove('nav-bg');
         }
 }
