@@ -1,0 +1,78 @@
+// HEADER AND NAV
+
+
+// ALL PAGES
+html{
+    box-sizing: border-box;
+    font-family: "Montserrat", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 18px;
+}
+
+// HOME
+.home-icons-outer {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: url(../img/background-landscape.jpg) center center / cover;
+}
+
+.home-icons-inner {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.home-icons-inner:first-child {
+    padding-right: 50px;
+}
+
+.home-icons-inner:last-child {
+    padding-left: 50px;
+}
+
+.home-icons-inner img {
+    height: 8vw;
+    max-height: 100px;
+    margin: 8px;
+}
+
+.home-slogan {
+    position: absolute;
+    top: calc(65vh + 3vw);
+    left: 0;
+    width: 100%;
+}
+
+.home-slogan img {
+    margin: 0 20%;
+    width: 60%;
+}
+
+@media (max-aspect-ratio: 1/1) {
+    .home-icons-outer {
+        background: url(../img/background-portrait.jpg) center center / cover;
+    }
+
+    .home-icons-outer {
+        height: 80vh;
+    }
+
+    .home-icons-inner {
+        flex-direction: column;
+        align-items: center;
+        height: 50%;
+    }
+
+    .home-icons-inner img {
+        height: 7vh;
+    }
+
+    .home-slogan img {
+        margin: 0 10%;
+        width: 80%;
+    }
+}
