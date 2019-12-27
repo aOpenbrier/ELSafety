@@ -1,25 +1,20 @@
-// Allow callback to run at most 1 time per 100ms
-    window.addEventListener("scroll", throttle(navOpacity, 100));
-// without throttle
-//     window.addEventListener("scroll", navOpacity());
+window.addEventListener("scroll", navOpacity())
 
-function throttle(callback, limit) {
-    var wait = false                   // Initially, we're not waiting
-    return function () {               // We return a throttled function
-        if (!wait) {                   // If we're not waiting
-            callback.call()            // Execute users function
-            wait = true                // Prevent future invocations
-            setTimeout(function () {   // After a period of time
-                wait = false           // And allow future invocations
-            }, limit)
-        }
+function navOpacity() {
+    if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
+        document.getElementById("top-bar").classList.add('top-scrolled')
+    } else {
+        document.getElementById("top-bar").classList.remove('top-scrolled')
     }
 }
 
-function navOpacity() {
-        if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
-            document.getElementById("top-bar").classList.add('top-scrolled')
-        } else {
-            document.getElementById("top-bar").classList.remove('top-scrolled');
-        }
+function openMenu() {
+    document.getElementById('nav-collapse').classList.toggle('open')
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function (event) {
+    if (!event.target.matches('#nav-trigger'){
+        document.getElementById('nav-collapse').classList.remove('open')
+    }
 }
