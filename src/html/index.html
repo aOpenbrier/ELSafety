@@ -28,8 +28,59 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500,600,700&display=swap" rel="stylesheet">
 </head>
-
 <body class="home">
+            <header>
+                <div id="top-bar">
+                    <img src="./assets/img/logo.svg" class="logo" alt="Emerald Lake Safety logo" role="presentation">
+                    <nav>
+                        <ul id="nav-collapse">
+                            <li class="nav-item">
+                                <a href="https://emeraldlakesafety.com/">Home</a>
+                            </li>
+                            <li class="nav-item sub-menu">
+                                <h2>About Us</h2><svg viewbox="0 0 24 24">
+                                    <use href="#icon-down"></use>
+                                </svg>
+                                <ul>
+                                    <li>
+                                        <a href="./what-we-do/">What We Do</a>
+                                    </li>
+                                    <li>
+                                        <a href="./leadership-team/">Leadership Team</a>
+                                    </li>
+                                    <li>
+                                        <a href="./sternfels-prize/">Sternfels Prize</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item sub-menu">
+                                <h2>Research</h2><svg viewbox="0 0 24 24">
+                                    <use href="#icon-down"></use>
+                                </svg>
+                                <ul>
+                                    <li>
+                                        <a href="./clinical-work/">Clinical Work</a>
+                                    </li>
+                                    <li>
+                                        <a href="./collaborations/">Collaborations</a>
+                                    </li>
+                                    <li>
+                                        <a href="./methods/">Methods</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./news/">News</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./contact-us/">Contact Us</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <img id="nav-trigger" class="menu-icon" src="./assets/img/icon-menu-light.svg" onclick="openMenu()" alt="menu icon" role="presentation">
+                </div>
+                <h1 class="sr-only">Emerald Lake Safety</h1>
+            </header>
         <div class="home-icons-outer">
             <div class="home-icons-inner">
                 <img src="./assets/img/icon-cap.svg" alt="graduation cap icon">
@@ -45,6 +96,14 @@
         <div class="home-slogan">
             <img src="./assets/img/text-innovating.svg" alt="Innovating drug safety">
         </div>
+        <!-- SVG ICON SOURCE -->
+        <div style="display: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                <path id="icon-down" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+            </svg>
+        </div>
+        <!-- JAVASCRIPT -->
+        <script src="./assets/js/nav.js"></script>
 </body>
 
 </html>
