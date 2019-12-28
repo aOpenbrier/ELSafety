@@ -93,6 +93,10 @@ a {
     box-shadow: 6px 3px 18px 0px rgba(0, 0, 0, 0.3);
 }
 
+strong {
+    font-weight: 700;
+}
+
 // HEADER AND NAV
 header {
     padding-top: 75px;
@@ -334,12 +338,92 @@ img.clinical {
 
 .collaborators {
     padding: 1em 0;
-    li{
+
+    li {
         color: #008fe8;
         font-size: 24px;
         line-height: 1;
-        &:before{
+
+        &:before {
             content: none;
+        }
+    }
+}
+
+main.news {
+    max-width: none;
+
+    >p {
+        max-width: 70%;
+    }
+}
+
+#news-tabs {
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.tab-list {
+    display: flex;
+    width: 100%;
+
+    button {
+        background: #808080;
+        border: none;
+        padding: 1em 1.5em;
+        width: 50%;
+    }
+
+    h2 {
+        color: white;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 1.5;
+        margin: 0;
+        text-align: left;
+    }
+
+    .active {
+        background: #008fe8;
+    }
+}
+
+.tab-content {
+    padding: 30px;
+}
+
+#els-news {
+    h3 {
+        color: #333333;
+        font-weight: 700;
+    }
+
+    a {
+        font-weight: 600;
+        ;
+    }
+}
+
+#safety-news {
+    a:first-child h3{
+        margin-top: 0;
+    }
+    h3 {
+        font-weight: 600;
+        line-height: 1.8;
+        margin: 1em 0;
+        padding-left: 2em;
+        position: relative;
+
+        &:before {
+            content: "⁖";
+            color: #333333;
+            left: 0;
+            line-height: .75;
+            font-size: 2em;
+            position: absolute;
         }
     }
 }
@@ -406,7 +490,7 @@ img.clinical {
     }
 
     nav {
-        left: 0;
+        left: -200vw;
         padding: 0 48px;
         position: fixed;
         top: 64px;
@@ -427,12 +511,24 @@ img.clinical {
             transition: opacity 0.3s, left 0s .3s;
             width: 100%;
 
-            &:focus, &:focus-within, &.mobile-nav-open {
+            &:focus, &:focus-within {
                 left: 0;
                 opacity: 1;
                 transition: opacity 0.3s;
             }
         }
+
+        &:focus, &:focus-within,
+        &.mobile-nav-open {
+            left: 0;
+
+            >ul {
+                left: 0;
+                opacity: 1;
+                transition: opacity 0.3s;
+            }
+        }
+
     }
 
     #nav-collapse {
@@ -506,6 +602,16 @@ img.clinical {
             font-size: 18px;
         }
     }
+
+    main.news>p {
+        max-width: none;
+    }
+
+    .tab-list {
+        h2 {
+            font-size: 20px;
+        }
+    }
 }
 
 @media (max-width: 500px) {
@@ -533,7 +639,6 @@ img.clinical {
     }
 
     nav {
-        left: 0;
         padding: 0 8px;
 
         >ul {
@@ -553,5 +658,11 @@ img.clinical {
 
     img.clinical {
         width: 100%;
+    }
+
+    .tab-list {
+        h2 {
+            font-size: 18px;
+        }
     }
 }
