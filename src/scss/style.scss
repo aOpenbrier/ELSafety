@@ -272,6 +272,78 @@ body.home {
     width: 60%;
 }
 
+// PAGES
+
+.about-text {
+    color: #188700;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: 1.5;
+    padding-right: 5%;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.team {
+    text-align: center;
+}
+
+img.team {
+    height: 300px;
+    margin-bottom: 1em;
+    object-fit: cover;
+    width: 246px;
+}
+
+main.sternfels {
+    display: flex;
+    max-width: none;
+
+    div:first-child {
+        max-width: 70%;
+    }
+
+    a {
+        color: #000080;
+    }
+}
+
+h2.sternfels {
+    color: #000080;
+    line-height: 1.5;
+}
+
+img.sternfels {
+    margin: 0 24px;
+    width: 150px;
+}
+
+p.clinical {
+    font-weight: 700;
+}
+
+img.clinical {
+    width: 75%;
+    margin-bottom: 2em;
+}
+
+.collaborators {
+    padding: 1em 0;
+    li{
+        color: #008fe8;
+        font-size: 24px;
+        line-height: 1;
+        &:before{
+            content: none;
+        }
+    }
+}
+
 @media (max-aspect-ratio: 1/1) {
     body.home {
         background: url(../img/background-portrait.jpg) center center / cover;
@@ -415,6 +487,25 @@ body.home {
     body.home .logo {
         height: 150%;
     }
+
+    main.sternfels {
+        flex-direction: column;
+
+        div:first-child {
+            margin-bottom: 2em;
+            max-width: none;
+        }
+    }
+
+    img.clinical {
+        width: 85%;
+    }
+
+    .collaborators {
+        li {
+            font-size: 18px;
+        }
+    }
 }
 
 @media (max-width: 500px) {
@@ -458,5 +549,9 @@ body.home {
 
     body.home .logo {
         height: 100%;
+    }
+
+    img.clinical {
+        width: 100%;
     }
 }
