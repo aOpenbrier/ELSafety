@@ -437,6 +437,20 @@ div.contact{
         top: 0;
     }
 }
+main.contact {
+    display: flex;
+    max-width: none;
+
+    >div:first-child {
+        width: 60%;
+    }
+    >div:last-child{
+        width:40%;
+        img{
+            width: 100%;
+        }
+    }
+}
 
 @media (max-aspect-ratio: 1/1) {
     body.home {
@@ -622,6 +636,18 @@ div.contact{
             font-size: 20px;
         }
     }
+
+        main.contact {
+            flex-direction: column;
+
+            >div:first-child, >div:last-child {
+                margin-bottom: 2em;
+                width: 100%;
+            }
+            >div:last-child img{
+                width: 75%;
+            }
+        }
 }
 
 @media (max-width: 500px) {
