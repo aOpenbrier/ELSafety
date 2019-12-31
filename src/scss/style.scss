@@ -210,6 +210,10 @@ nav {
 body.home {
     background: url(../img/background-landscape.jpg) center center / cover;
 
+    #top-bar{
+        padding-left: 0;
+    }
+
     .nav-item {
         &>h2, &>a {
             color: #d9d9d9;
@@ -224,8 +228,12 @@ body.home {
     }
 
     .logo {
-        height: 200%;
         align-self: flex-start;
+        height: auto;
+        left: 4vw;
+        position: relative;
+        top: 4vw;
+        width: 25vw;
     }
 
     .sub-menu svg {
@@ -453,8 +461,30 @@ main.contact {
 }
 
 @media (max-aspect-ratio: 1/1) {
+
+    .home-icons-outer {
+        height: 80vh;
+    }
+
+    .home-icons-inner {
+        align-items: center;
+        flex-direction: column;
+        height: 50%;
+    }
+
+    .home-icons-inner img {
+        height: 7vh;
+    }
+
+    .home-slogan img {
+        margin: 0 10%;
+        width: 80%;
+    }
+}
+
+@media (max-aspect-ratio: 7/9) {
     body.home {
-        background: url(../img/background-portrait.jpg) center center / cover;
+        background: url(../img/background-portrait.png) center center / cover;
     }
 
     .home-icons-outer {
@@ -605,7 +635,8 @@ main.contact {
     }
 
     body.home .logo {
-        height: 150%;
+        width: 30vw;
+        top: 2vw;
     }
 
     main.sternfels {
@@ -689,7 +720,7 @@ main.contact {
     }
 
     body.home .logo {
-        height: 100%;
+     top: 1vw;   
     }
 
     img.clinical {
