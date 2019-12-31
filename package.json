@@ -22,7 +22,7 @@
     "autoprefix": "postcss build -u autoprefixer -d dist/assets/css",
     "babel": "babel src/js --out-dir dist/assets/js --presets=@babel/preset-env",
     "build": "npm run clean && npm run copy && npm run scss && npm run autoprefix && npm run babel",
-    "deploy": "gh-pages -d publish"
+    "deploy": "gh-pages -d dist"
   },
   "browserslist": [
     ">0.2% in US",
