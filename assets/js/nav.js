@@ -1,5 +1,6 @@
 "use strict";
 
+var isHomePage = false;
 window.addEventListener("scroll", throttle(navOpacity, 33));
 
 function throttle(callback, limit) {
@@ -31,6 +32,7 @@ function openMenu() {
 
 for (var i = 0; i < document.getElementsByClassName('sub-menu').length; i++) {
   document.getElementsByClassName('sub-menu')[i].onclick = openSubMenu;
+  document.getElementsByClassName('sub-menu')[i].onmouseleave = closeSubMenu;
 }
 
 function openSubMenu(event) {
@@ -41,8 +43,9 @@ function openSubMenu(event) {
   } else {
     // if clicked on child
     target = event.target.parentNode;
-  } // close other submenus before expanded target
+  }
 
+  target.focus(); // close other submenus 
 
   for (var _i = 0; _i < document.getElementsByClassName('sub-menu').length; _i++) {
     if (document.getElementsByClassName('sub-menu')[_i] === target) {
@@ -50,6 +53,14 @@ function openSubMenu(event) {
     } else {
       document.getElementsByClassName('sub-menu')[_i].classList.remove('sub-expanded');
     }
+  }
+}
+
+function closeSubMenu(event) {
+  console.log('closesubmenu');
+
+  for (var _i2 = 0; _i2 < document.getElementsByClassName('sub-menu').length; _i2++) {
+    document.getElementsByClassName('sub-menu')[_i2].classList.remove('sub-expanded');
   }
 } // Close the dropdown if the user clicks outside of it
 
@@ -60,8 +71,20 @@ window.onclick = function (event) {
   }
 
   if (!event.target.classList.contains('sub-menu') && !event.target.parentNode.classList.contains('sub-menu')) {
-    for (var _i2 = 0; _i2 < document.getElementsByClassName('sub-menu').length; _i2++) {
-      document.getElementsByClassName('sub-menu')[_i2].classList.remove('sub-expanded');
+    for (var _i3 = 0; _i3 < document.getElementsByClassName('sub-menu').length; _i3++) {
+      document.getElementsByClassName('sub-menu')[_i3].classList.remove('sub-expanded');
     }
   }
 };
+
+function fixHeight() {
+  if (window.matchMedia('(pointer:coarse)').matches) {
+    document.getElementById('nav-collapse').getElementsByTagName('UL')[0].style.maxHeight = window.innerHeight - 64 + 'px';
+
+    if (isHomePage) {
+      fixBodyHeight();
+    }
+  }
+}
+
+window.addEventListener("resize", throttle(fixHeight, 33));

@@ -1,5 +1,7 @@
 "use strict";
 
+isHomePage = true;
+
 function fixBodyHeight() {
   if (window.matchMedia('(pointer:coarse)').matches) {
     console.log('matches coarse');
@@ -7,5 +9,4 @@ function fixBodyHeight() {
   }
 }
 
-window.addEventListener("resize", throttle(fixBodyHeight, 33));
 fixBodyHeight();
