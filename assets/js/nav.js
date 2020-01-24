@@ -43,9 +43,8 @@ function openSubMenu(event) {
   } else {
     // if clicked on child
     target = event.target.parentNode;
-  }
+  } // close other submenus 
 
-  target.focus(); // close other submenus 
 
   for (var _i = 0; _i < document.getElementsByClassName('sub-menu').length; _i++) {
     if (document.getElementsByClassName('sub-menu')[_i] === target) {
@@ -78,6 +77,7 @@ window.onclick = function (event) {
 };
 
 function fixHeight() {
+  //compensate for mobile browsers including url bar in viewheight
   if (window.matchMedia('(pointer:coarse)').matches) {
     document.getElementById('nav-collapse').getElementsByTagName('UL')[0].style.maxHeight = window.innerHeight - 64 + 'px';
 
