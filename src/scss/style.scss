@@ -149,13 +149,17 @@ nav {
 
     >ul {
         display: flex;
+        align-items: center;
         max-height: calc(100vh - 83px);
     }
 }
 
 .nav-item {
+    height: 16px;
     padding-right: 1.5em;
-
+    a, h2 {
+        font-size: 16px;
+    }
     &:focus, &:focus-within, &:hover {
         &>a, &>h2 {
             color: #008fe8;
@@ -171,16 +175,16 @@ nav {
     h2 {
         color: #808080;
         display: inline-block;
-        font-size: 18px;
+        font-size: 16px;
         margin: 0;
         text-transform: uppercase;
-        vertical-align: 2px;
     }
 
     svg {
-        height: 18px;
-        width: 18px;
+        height: 16px;
+        width: 16px;
         fill: #808080;
+        vertical-align: top;
     }
 
     >ul {
@@ -188,7 +192,7 @@ nav {
         box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
         left: -200vw;
         position: absolute;
-        top: 1.2em;
+        top: 1em;
         width: 300px;
     }
 
@@ -204,11 +208,17 @@ nav {
         background-color: #cccccc;
     }
 
-    &:focus ul, &:hover ul, &:focus-within ul, &.sub-expanded ul {
+    &:focus ul, &:focus-within ul, &.sub-expanded ul {
         left: 0;
     }
 }
 
+// only on devices with mouse enable hover expand submenu
+@media (pointer: fine){
+    .sub-menu:hover ul, .sub-menu ul:hover{
+       left: 0;
+    }
+}
 // HOME
 
 body.home {
@@ -338,8 +348,8 @@ h2.sternfels {
 }
 
 img.sternfels {
-    margin: 0 24px;
-    width: 150px;
+    margin: 0 0 024px;
+    width: 225px;
 }
 
 p.clinical {
@@ -531,7 +541,7 @@ main.contact {
 
 @media (min-aspect-ratio: 2/1) {
     .home-slogan {
-        top: 70%;
+        top: 73%;
     }
 }
 
@@ -557,6 +567,10 @@ main.contact {
 
     #top-bar {
         padding-left: 60px;
+    }
+
+    img.sternfels{
+        width: 200px;
     }
 }
 
@@ -627,6 +641,7 @@ main.contact {
     #nav-collapse {
 
         .nav-item {
+            height: auto;
             a, h2 {
                 color: #808080;
                 border-bottom: 1px solid #f7f7f7;
@@ -688,6 +703,7 @@ main.contact {
 
     img.sternfels {
         width: 250px;
+        margin: 0;
     }
 
     img.clinical {
@@ -727,28 +743,34 @@ main.contact {
 }
 
 @media (max-width: 900px) and (orientation: landscape) {
+    html{
+        font-size: 13px;
+    }
     h1 {
-        font-size: 30px;
+        font-size: 22px;
         margin: 0 0 .25em 0;
     }
 
-    h2 {
-        font-size: 26px;
+    h2, .about-text {
+        font-size: 18px;
         margin-bottom: .25em;
     }
 
     main li {
         margin-bottom: .25em;
-        ;
+    }
+    p {
+        margin-bottom: 0.5em;
     }
 
-    #nav-collapse ul {
+    #nav-collapse > ul {
         padding: 12px 48px;
-        max-height: calc(100vh - 105px)
+        max-height: calc(100vh - 64px)
     }
 
     #nav-collapse .nav-item a, #nav-collapse .nav-item h2 {
-        padding: 5px 20px;
+        padding: 4px 20px;
+        font-size: 13px;
     }
 
     body.home {
@@ -776,10 +798,6 @@ main.contact {
 
     h2 {
         font-size: 6vw;
-    }
-
-    p {
-        text-align: left;
     }
 
     #top-bar {
