@@ -1,4 +1,5 @@
-window.addEventListener("scroll", throttle(navOpacity, 33))
+let isHomePage = false
+window.addEventListener("scroll", navOpacity)
 
 function throttle(callback, limit) {
     var wait = false
@@ -28,6 +29,7 @@ function openMenu() {
 
 for (let i = 0; i < document.getElementsByClassName('sub-menu').length; i++) {
     document.getElementsByClassName('sub-menu')[i].onclick = openSubMenu
+    document.getElementsByClassName('sub-menu')[i].onmouseleave = closeSubMenu
 }
 
 function openSubMenu(event) {
@@ -39,7 +41,7 @@ function openSubMenu(event) {
         // if clicked on child
         target = event.target.parentNode
     }
-    // close other submenus before expanded target
+    // close other submenus 
     for (let i = 0; i < document.getElementsByClassName('sub-menu').length; i++) {
         if (document.getElementsByClassName('sub-menu')[i] === target){
             target.classList.toggle('sub-expanded')
@@ -49,6 +51,13 @@ function openSubMenu(event) {
         }
     }
 
+}
+
+function closeSubMenu(event){
+    console.log('closesubmenu')
+    for (let i = 0; i < document.getElementsByClassName('sub-menu').length; i++) {
+        document.getElementsByClassName('sub-menu')[i].classList.remove('sub-expanded')
+    }
 }
 
 // Close the dropdown if the user clicks outside of it
@@ -62,3 +71,15 @@ window.onclick = function (event) {
         }
     }
 }
+
+function fixHeight() {
+    //compensate for mobile browsers including url bar in viewheight
+    if (window.matchMedia('(pointer:coarse)').matches) {
+        document.getElementById('nav-collapse').getElementsByTagName('UL')[0].style.maxHeight = window.innerHeight - 64 + 'px'
+        if (isHomePage){
+          fixBodyHeight()  
+        }
+    }
+}
+
+window.addEventListener("resize", throttle(fixHeight, 33))
