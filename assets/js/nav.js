@@ -1,7 +1,7 @@
 "use strict";
 
 var isHomePage = false;
-window.addEventListener("scroll", throttle(navOpacity, 33));
+window.addEventListener("scroll", navOpacity);
 
 function throttle(callback, limit) {
   var wait = false;
